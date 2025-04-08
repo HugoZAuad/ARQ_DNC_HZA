@@ -29,7 +29,7 @@ a {
 
 .form-input::placeholder {
   color: #292F36;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
 /* TYPOGRAPHY */

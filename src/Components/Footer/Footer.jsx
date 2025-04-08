@@ -30,8 +30,7 @@ function Footer() {
           <div className="footer-logo-col">
             <img src={Logo} className="footer-logo" alt="DNC LOGO" />
             <p className="grey-1-color">
-              A escola que prepara você para as profissões em alta no mercado de
-              trabalho.
+              {appContext.languages[appContext.language].general.footerLogoText}
             </p>
             <div className="d-flex social-links">
               <a href="https://google.com" target="_blank">

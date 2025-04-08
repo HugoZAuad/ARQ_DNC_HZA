@@ -5,6 +5,7 @@ export const getApiData = async (endpoint, params) => {
 
         const response = await fetch(url, {
             method: 'GET',
+            mode: 'no-cors',
         })
 
         if (!response.ok) {

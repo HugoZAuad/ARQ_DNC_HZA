@@ -40,6 +40,10 @@
     font-size: 18px;
 }
 
+.btn{
+  background: none;
+}
+
 
 @media (max-width: 768px) {
   .projects-grid {

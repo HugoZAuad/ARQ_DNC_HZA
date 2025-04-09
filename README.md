@@ -1,12 +1,83 @@
-# React + Vite
+# Arquitetura (DNC)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto desenvolvido como parte dos estudos de programação na DNC. O objetivo do projeto é criar uma aplicação web que exibe uma lista de projetos, permite salvar favoritos e utiliza um contexto global para gerenciar o idioma e textos dinâmicos.
 
-Currently, two official plugins are available:
+## 📋 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Exibição de uma lista de projetos com informações como título, subtítulo e imagem.
+- Possibilidade de favoritar projetos, com persistência no `sessionStorage`.
+- Suporte a múltiplos idiomas utilizando `AppContext`.
+- Integração com uma API para buscar dados dinâmicos.
+- Design responsivo e estilização com CSS.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**: Biblioteca principal para construção da interface.
+- **Context API**: Gerenciamento de estado global para idioma e textos.
+- **Fetch API**: Comunicação com a API para buscar dados.
+- **CSS**: Estilização da aplicação.
+- **SessionStorage**: Persistência de dados local para projetos favoritos.
+
+## 📂 Estrutura do Projeto
+
+src/ 
+├── Components/
+│ ├── Button/ 
+│ │ └── Button.jsx 
+│ ├── ContactForm/ 
+│ │ └── ContactForm.jsx 
+│ ├── Contexts/ 
+│ │ └── AppContext.jsx 
+│ ├── ProjectsList/ 
+│ │ └── ProjectsList.jsx 
+├── assets/ 
+│ ├── like.svg 
+│ └── like-filed.svg 
+├── services/ 
+│ └── apiServices.js 
+└── App.js
+
+## 🚀 Como Executar o Projeto
+
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+
+2. Instale as dependências:
+    npm install
+
+3. Inicie o servidor de desenvolvimento:
+    npm start
+
+4. Acesse a aplicação: Abra o navegador e acesse
+    http://localhost:3000.
+
+🌐 ## API Utilizada
+
+A aplicação utiliza uma API para buscar dados dinâmicos. Certifique-se de que a API está configurada corretamente no arquivo apiServices.js.
+
+Exemplo de configuração:
+
+export const getApiData = async (endpoint) => {
+  const response = await fetch(`https://sua-api.com/${endpoint}`);
+  return response.json();
+};
+
+🖼️ ## Demonstração
+
+Lista de Projetos
+Exibe os projetos com título, subtítulo e imagem.
+Botão para favoritar/desfavoritar projetos.
+Formulário de Contato
+Permite o envio de mensagens com validação de campos.
+Suporte a Idiomas
+Textos dinâmicos baseados no idioma selecionado.
+
+📦 ## Dependências Principais
+
+React: ^18.0.0
+React-DOM: ^18.0.0
+
+📝 ## Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.

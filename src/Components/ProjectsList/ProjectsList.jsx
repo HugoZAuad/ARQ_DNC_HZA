@@ -3,7 +3,10 @@ import "./ProjectsList.css";
 
 //assets
 import LikedFilled from "../../assets/like-filed.svg";
-import Like from "../../assets/like.svg";
+import LikedOutline from "../../assets/like.svg";
+
+//Components
+import Button from "../Button/Button";
 
 //Context
 import { AppContext } from "../Contexts/AppContext";
@@ -13,6 +16,25 @@ import { getApiData } from "../../services/apiServices";
 
 function ProjectsList() {
   const [projects, setProjects] = useState([]);
+  const appContext = useContext(AppContext);
+  const [favProjects, setfavProjects] = useState([]);
+  const handleSavedProjects = (id) => {
+    setfavProjects((prevFavProject) => {
+      if (prevFavProject.includes(id)) {
+        const filterArray = prevFavProject.filter(
+          (projectId) => projectId !== id
+        );
+        sessionStorage.setItem("favProject", JSON.stringify(filterArray));
+        return prevFavProject.filter((projectId) => projectId !== id);
+      } else {
+        sessionStorage.setItem(
+          "favProject",
+          JSON.stringify([...prevFavProject, id])
+        );
+        return [...prevFavProject, id];
+      }
+    });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,14 +49,18 @@ function ProjectsList() {
     fetchData();
   }, []);
 
-  const appContext = useContext(AppContext);
+  useEffect(() => {
+    const savedFavProject = JSON.parse(sessionStorage.getItem("favProject"));
+    if (savedFavProject) {
+      setfavProjects(savedFavProject);
+    }
+  }, []);
+
   return (
     <div className="projects-section">
       <div className="projects-hero">
         <h2>{appContext.languages[appContext.language].projects.title}</h2>
-        <p>
-        {appContext.languages[appContext.language].projects.subtitle}
-        </p>
+        <p>{appContext.languages[appContext.language].projects.subtitle}</p>
       </div>
       <div className="projects-grid">
         {projects
@@ -49,7 +75,21 @@ function ProjectsList() {
                 ></div>
                 <h3>{project.title}</h3>
                 <p>{project.subtitle}</p>
-                <img src={LikedFilled} height="20px" alt="" />
+                <Button
+                  className="btn"
+                  buttonStyle="unstyled"
+                  onClick={() => handleSavedProjects(project.id)}
+                >
+                  <img
+                    src={
+                      favProjects.includes(project.id)
+                        ? LikedFilled
+                        : LikedOutline
+                    }
+                    height="20px"
+                    alt=""
+                  />
+                </Button>
               </div>
             ))
           : null}

@@ -81,3 +81,7 @@ React-DOM: ^18.0.0
 
 ## 📝 Licença
 Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+
+## Deploy
+
+https://dncproject-arquitetura.vercel.app

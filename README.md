@@ -53,7 +53,7 @@ src/
 4. Acesse a aplicação: Abra o navegador e acesse
     http://localhost:3000.
 
-🌐 ## API Utilizada
+## 🌐 API Utilizada
 
 A aplicação utiliza uma API para buscar dados dinâmicos. Certifique-se de que a API está configurada corretamente no arquivo apiServices.js.
 
@@ -64,7 +64,7 @@ export const getApiData = async (endpoint) => {
   return response.json();
 };
 
-🖼️ ## Demonstração
+## 🖼️ Demonstração
 
 Lista de Projetos
 Exibe os projetos com título, subtítulo e imagem.
@@ -74,10 +74,14 @@ Permite o envio de mensagens com validação de campos.
 Suporte a Idiomas
 Textos dinâmicos baseados no idioma selecionado.
 
-📦 ## Dependências Principais
+## 📦 Dependências Principais
 
 React: ^18.0.0
 React-DOM: ^18.0.0
 
-📝 ## Licença
+## 📝 Licença
 Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+
+## Deploy
+
+https://dncproject-arquitetura.vercel.app

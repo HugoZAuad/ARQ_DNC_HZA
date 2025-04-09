@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import "./ContactForm.css";
 
 //components
 import Button from "../Button/Button";
+
+//Context
+import { AppContext } from "../Contexts/AppContext";
 
 function ContactForm() {
   const [formData, setformData] = useState({
@@ -63,10 +66,10 @@ function ContactForm() {
     }));
   }
 
-
+  const appContext = useContext(AppContext);
   return (
     <div className="contact-form d-flex fd-column al-center">
-      <h2>We love meeting new people and helping them.</h2>
+      <h2>{appContext.languages[appContext.language].contact.title}</h2>
       <form onSubmit={handleSubmit}>
         <div className="d-flex form-group">
           <input
@@ -74,7 +77,7 @@ function ContactForm() {
             className="form-input"
             id="name"
             name="name"
-            placeholder="Name *"
+            placeholder={appContext.languages[appContext.language].contact.pl1}
             onChange={handleChange}
           />
           <input
@@ -82,7 +85,7 @@ function ContactForm() {
             className="form-input"
             id="email"
             name="email"
-            placeholder="E-mail *"
+            placeholder={appContext.languages[appContext.language].contact.pl2}
             onChange={handleChange}
           />
         </div>
@@ -91,15 +94,15 @@ function ContactForm() {
             className="form-input"
             name="message"
             id="message"
-            placeholder="mensagem"
+            placeholder={appContext.languages[appContext.language].contact.pl3}
             onChange={handleChange}
             rows="4"
           ></textarea>
         </div>
         <div className="d-flex al-center jc-end form-group">
-          {formSubmitted && (<p className="success-message">Mensagem enviada com sucesso!</p>)}
+          {formSubmitted && (<p className="success-message">{appContext.languages[appContext.language].contact.successMsg}</p>)}
           <Button type="submit" buttonStyle="secondary" disabled={!isFormValid || formSubmitLoading}>
-            Enviar
+          {appContext.languages[appContext.language].general.send}
           </Button>
         </div>
       </form>

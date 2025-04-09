@@ -1,11 +1,10 @@
-export const getApiData = async (endpoint, params) => {
+export const getApiData = async (endpoint) => {
     try {
-        const url = new URL(`https://react.dnc.group/files/${endpoint}`)
-        params ? Object.keys(params).forEach(key => url.searchParams.append(key, params[key])) : null
-
+        const url = new URL(`https://dnc-react-api.vercel.app/files/${endpoint}`)
+        
         const response = await fetch(url, {
             method: 'GET',
-            mode: 'no-cors',
+ 
         })
 
         if (!response.ok) {

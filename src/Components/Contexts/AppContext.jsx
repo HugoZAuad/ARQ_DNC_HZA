@@ -4,8 +4,7 @@ import { getApiData } from "../../services/apiServices"
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const savedLanguage = localStorage.getItem('lang')
-  const [language, setLanguage] = useState(savedLanguage ?? 'br')
+  const [language, setLanguage] = useState('br')
   const [languages, setLanguages] = useState()
   const [loading, setLoading] = useState(true)
 
@@ -25,12 +24,8 @@ export const AppProvider = ({ children }) => {
         fetchLanguages()
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem('lang', language)
-  }, [language])
-
   return (
-    <AppContext.Provider value={{ languages, language, setLanguage, loading }}>
+    <AppContext.Provider value={{ language, languages, setLanguage, loading }}>
       {children}
     </AppContext.Provider>
   )

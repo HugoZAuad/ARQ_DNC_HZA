@@ -49,24 +49,24 @@ function Footer() {
           </div>
           <div className="d-flex mobile-fd-column">
             <div className="footer-col">
-              <h3>Pages</h3>
+              <h3>{appContext.languages[appContext.language].general.pages}</h3>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">{appContext.languages[appContext.language].menu.home}</Link>
                 </li>
                 <li>
-                  <Link to="/about">About</Link>
+                  <Link to="/about">{appContext.languages[appContext.language].menu.about}</Link>
                 </li>
                 <li>
-                  <Link to="/projects">Projects</Link>
+                  <Link to="/projects">{appContext.languages[appContext.language].menu.projects}</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/contact">{appContext.languages[appContext.language].menu.contact}</Link>
                 </li>
               </ul>
             </div>
             <div className="footer-col">
-              <h3>Contact</h3>
+              <h3>{appContext.languages[appContext.language].general.contact}</h3>
               <p className="grey-1-color">
                 {" "}
                 R. Justino Cobra, 61 – Vila Ema | São José dos Campos – SP | CEP

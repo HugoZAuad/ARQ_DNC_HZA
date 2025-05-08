@@ -19,7 +19,7 @@ Este é um projeto desenvolvido como parte dos estudos de programação na DNC. 
 - **SessionStorage**: Persistência de dados local para projetos favoritos.
 
 ## 📂 Estrutura do Projeto
-
+```
 src/ 
 ├── Components/
 │ ├── Button/ 
@@ -36,7 +36,7 @@ src/
 ├── services/ 
 │ └── apiServices.js 
 └── App.js
-
+```
 ## 🚀 Como Executar o Projeto
 
 1. **Clone o repositório**:
